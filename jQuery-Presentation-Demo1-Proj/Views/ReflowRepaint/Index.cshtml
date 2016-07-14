@@ -1,0 +1,35 @@
+﻿@{
+    Layout = null;
+    ViewBag.Title = "Index";
+}
+<html>
+<head>
+    @Scripts.Render("~/bundles/jquery")
+    <style>
+        li {
+            list-style: none;
+            display: block;
+            width: 50px;
+            height: 50px;
+            float: left;
+            background-color: blue;
+            color: white;
+            margin-top: 5px;
+            margin-right: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div><ul id="teste"></ul></div>
+    <script>
+        var $teste = $("#teste");
+        var frag = $("<ul>");
+        for (var i = 0; i < 50000; i++) {
+            frag.append(
+                $("<li>").append("texto " + (i + 1))
+            );
+        }
+        $("div").append(frag);
+    </script>
+</body>
+</html>
